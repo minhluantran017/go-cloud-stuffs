@@ -22,7 +22,7 @@ func ListObjects(awsConfig aws.Config, bucket string) {
 
 	svc := s3.New(awsConfig)
 
-	req := svc.ListObjectsRequest(&s3.ListObjectsInput{Bucket: &os.Args[2]})
+	req := svc.ListObjectsRequest(&s3.ListObjectsInput{Bucket: &bucket})
 	p := s3.NewListObjectsPaginator(req)
 	for p.Next(context.TODO()) {
 		page := p.CurrentPage()
